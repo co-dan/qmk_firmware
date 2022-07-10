@@ -59,18 +59,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_LOWER] =  LAYOUT_ortho_4x12_1x2uC(
-    _______, RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______, _______, KC_MINUS, KC_EQL, KC_DEL,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_LBRACKET, KC_RBRACKET, KC_QUOTE,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, _______
-),
+    RGB_TOG, RGB_MOD, RGB_RMOD, RGB_VAI, RGB_VAD, RGB_SPI, RGB_SPD, KC_TRNS, KC_TRNS, KC_MINS, KC_EQL, KC_DEL,
+    BL_TOGG, BL_STEP, BL_BRTG, BL_INC, BL_DEC, KC_TRNS, KC_TRNS, KC_TRNS, KC_LBRC, KC_RBRC, KC_QUOT, KC_TRNS,
+    KC_TRNS, QK_BOOT, EE_CLR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PGDN, KC_PGUP, KC_TRNS),
 
 [_RAISE] = LAYOUT_ortho_4x12_1x2uC(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    _______, _______, _______, _______, _______, _______, _______, _______,  _______, KC_LBRACKET, KC_RBRACKET, KC_QUOTE,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_LBRACKET, KC_RBRACKET, KC_QUOTE,  _______, 
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, RESET, QK_BOOT, _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, _______
+    _______, _______, _______, _______, _______, KC_SPC, _______, _______, KC_VOLD, KC_VOLU, _______
 ),
 
 /* Adjust (Lower + Raise)
@@ -85,16 +83,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-/* [_ADJUST] = LAYOUT_ortho_4x12_1x2uC( */
-/*     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL , */
-/*     _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, _______, */
-/*     _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, _______, */
-/*     _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______ */
-/* ) */
+[_ADJUST] = LAYOUT_ortho_4x12_1x2uC(
+    _______, _______,RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
+    _______, _______, _______, _______, _______, _______, KC_MS_LEFT, KC_MS_DOWN,KC_MS_UP,KC_MS_RIGHT, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+)
 
 };
 
-/* layer_state_t layer_state_set_user(layer_state_t state) { */
-/*   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST); */
-/* } */
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
 
