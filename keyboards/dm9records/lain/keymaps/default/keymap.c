@@ -32,20 +32,20 @@ bool is_alt_tab_active = false;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_QWERTY] = LAYOUT(
-        KC_GESC,         KC_Q,  KC_W,  KC_E,  KC_R,    KC_T,    KC_LBRC,   KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
-        MT(MOD_LCTL, KC_TAB), KC_A,  KC_S,  KC_D,  KC_F,    KC_G,    KC_RBRC,   KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_ENTER,
-        TD(TD_SHIFT_CAPS),         KC_Z,  KC_X,  KC_C,  KC_V,    KC_B,         KC_BACKSLASH, KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-        KC_TAB,                   KC_LALT, KC_LGUI,  LOWER, KC_RCTRL,  KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT
+        KC_GESC,         KC_Q,  KC_W,  KC_E,  KC_R,    KC_T,    KC_PGUP,   KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
+        MT(MOD_LCTL, KC_TAB), KC_A,  KC_S,  KC_D,  KC_F,    KC_G,    KC_PGDN,   KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_ENTER,
+        TD(TD_SHIFT_CAPS),         KC_Z,  KC_X,  KC_C,  KC_V,    KC_B,         KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BACKSLASH,
+        KC_TAB,                   KC_LALT, KC_LGUI,  LT(LOWER, KC_BSPC), KC_RCTRL,  KC_ENTER, LT(RAISE, KC_SPC), KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT
     ),
     [_LOWER] = LAYOUT(
-        KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,     KC_F7,   KC_F8,   KC_F9,   KC_MINS,  KC_EQL,  KC_DEL,
-        ALT_TAB, LED_EN,  _______, _______, _______, _______, _______,   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_QUOTE, KC_GRV,
-        _______, _______, _______, _______, _______, _______,            KC_COLN, KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_SLSH,
+        KC_TILD, KC_EXLM, KC_AT,   KC_HASH,  KC_DLR, KC_PERC, KC_LPRN,   KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,  KC_DEL,
+        ALT_TAB, _______, _______, _______, _______, _______, KC_RPRN,   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_QUOTE, KC_GRV,
+        _______, _______, _______, _______, _______, _______,            KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_SLSH,  _______,
         _______,                   _______, _______, _______, _______,   KC_ENTER, _______, _______, KC_PGDN, KC_PGUP, _______
     ),
     [_RAISE] = LAYOUT(
-        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_LPRN,   KC_6,      KC_7,    KC_8,    KC_9,    KC_0,   KC_BSPC,
-        KC_TAB,  _______, KC_MINS, KC_EQL,  KC_BACKSLASH, KC_QUOTE, KC_RPRN,    KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_QUOTE, KC_GRV,
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_LBRC,   KC_6,      KC_7,    KC_8,    KC_9,    KC_0,   KC_BSPC,
+        KC_TAB,  _______, KC_MINS, KC_EQL,  KC_BACKSLASH, KC_QUOT, KC_RBRC,    KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_QUOTE, KC_GRV,
         _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_COLN,            KC_COLN, _______, _______, _______, _______,  KC_BACKSLASH,
         _______,                   _______, _______, _______,  KC_BSPC, _______, _______, _______, KC_VOLD, KC_VOLU,  _______
     ),
