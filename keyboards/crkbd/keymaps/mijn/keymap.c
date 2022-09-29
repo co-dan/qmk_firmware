@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+-------+-----------+-----------+-----------+-----|        |-----+-----------+-----------+-----------+--------+---------|
       KC_LSFT,   KC_Z,       KC_X,       KC_C,       KC_V, KC_B,          KC_N,       KC_M,    KC_COMM,     KC_DOT, KC_SLSH,KC_BACKSLASH,
   //|--------+-------+-----------+-----------+-----------+-----|        |-----+-----------+-----------+-----------+--------+---------|
-                                     KC_LGUI,  LOWER,  _______,          KC_SPC, RAISE,    KC_RALT
+                                     KC_LGUI,  LOWER,  KC_BSPC,          KC_SPC, RAISE,    KC_RALT
                               //`------------------------------'       `--------------------------'
       
     ),                         
@@ -84,6 +84,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, CONF);
+}
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
