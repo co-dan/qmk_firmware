@@ -32,6 +32,12 @@ enum layer_names {
 #define MT_G(X) MT(MOD_LGUI, X)
 #define MT_S(X) MT(MOD_LSFT, X)
 
+//const uint16_t PROGMEM caps_word_combo[] = {KC_G, KC_H, COMBO_END};
+const uint16_t PROGMEM caps_word_combo[] = {MT_C(KC_F), MT_C(KC_J), COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(caps_word_combo, CAPS_WORD),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung41(
       KC_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,          KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
