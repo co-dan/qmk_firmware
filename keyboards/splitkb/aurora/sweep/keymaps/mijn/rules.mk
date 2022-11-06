@@ -1,0 +1,9 @@
+MOUSEKEY_ENABLE  = no
+LTO_ENABLE       = yes
+AUTO_SHIFT_ENABLE = yes
+SPLIT_KEYBOARD   = yes
+RGBLIGHT_ENABLE  = no
+OLED_ENABLE      = no
+WPM_ENABLE       = no
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE     = yes
