@@ -34,55 +34,43 @@ enum layers {
 #define MT_G(X) MT(MOD_LGUI, X)
 #define MT_S(X) MT(MOD_LSFT, X)
 
+const uint16_t PROGMEM test_combo1[] = {MT_C(KC_F), MT_C(KC_J), COMBO_END};
+combo_t key_combos[1] = {
+    COMBO(test_combo1, CAPS_WORD)
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3(
-  //,----------------------------------------------------------.        ,------------------------------------------------------------.
-      QK_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,         KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
-  //|--------+-------+-----------+-----------+-----------+-----|        |-----+-----------+-----------+-----------+--------+---------|
-      KC_MTCT,   KC_A, MT_G(KC_S), MT_S(KC_D), MT_C(KC_F), KC_G,          KC_H, MT_C(KC_J), MT_S(KC_K), MT_G(KC_L), KC_SCLN, KC_ENTER,
-  //|--------+-------+-----------+-----------+-----------+-----|        |-----+-----------+-----------+-----------+--------+---------|
-      KC_LSFT,   KC_Z,       KC_X,       KC_C,       KC_V, KC_B,          KC_N,       KC_M,    KC_COMM,     KC_DOT, KC_SLSH,KC_BACKSLASH,
-  //|--------+-------+-----------+-----------+-----------+-----|        |-----+-----------+-----------+-----------+--------+---------|
-                         KC_LGUI,  LT(_LOWER,KC_BSPC),  KC_BSPC,          KC_SPC, LT(_RAISE,KC_SPC),    KC_RALT
-                              //`------------------------------'       `--------------------------'
-      
+      QK_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,          KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
+      KC_MTCT,   KC_A, MT_G(KC_S), MT_S(KC_D), MT_C(KC_F), KC_G,          KC_H,  MT_C(KC_J), MT_S(KC_K), MT_G(KC_L), KC_SCLN, KC_ENTER,
+      KC_LSFT,   KC_Z,       KC_X,       KC_C,       KC_V, KC_B,          KC_N,        KC_M,    KC_COMM,     KC_DOT, KC_SLSH, KC_BSLS,
+                      KC_LGUI, LT(_LOWER,KC_BSPC), MT_S(KC_BSPC),        MT_S(KC_SPC), LT(_RAISE,KC_SPC),  MT(KC_RALT,KC_ENTER)      
     ),                         
 
   [_LOWER] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TILD, KC_EXLM, KC_AT,   KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,  KC_DEL,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,  KC_TILD, KC_UNDS, KC_PLUS, KC_PIPE, KC_DQT,                       KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT,KC_QUOTE, KC_GRV,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PGDN, KC_PGUP,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        KC_LGUI,   _______, _______,     KC_ENT, _______, KC_RALT
-                                      //`--------------------------'  `--------------------------'
-  ),
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_TRNS, _______,
+                                         KC_LGUI,  _______, _______,          KC_ENT,  LT(_RAISE,KC_SPC), KC_RALT
+    ),
 
   [_RAISE] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+  //,-----------------------------------------------------.                    ,---------------------------------------------------
        KC_GRV,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_MTCT,  KC_GRV, KC_MINS, KC_EQL,  KC_BSLS, KC_QUOT,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,KC_QUOTE,KC_ENTER,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_COLN,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______, _______,    _______, _______, KC_RALT
-                                      //`--------------------------'  `--------------------------'
-  ),
+      _______,  KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_COLN,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU,
+                                      _______, _______, _______,             _______, _______, _______                                
+ ),
 
   [CONF] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_ENT,    KC_SPC, _______, KC_RALT
-                                      //`--------------------------'  `--------------------------'
-  )
+  QK_BOOT, _______, _______, _______, _______, _______,            KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,
+  _______, _______, _______, _______, _______, _______,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+  _______, _______, _______, _______, _______, _______,            KC_F11,  KC_F12,  _______, _______, _______, _______,
+                               _______, _______, _______,        _______, LT(_RAISE,KC_SPC), _______
+   )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
