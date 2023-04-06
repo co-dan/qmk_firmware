@@ -9,4 +9,5 @@
 
 #define COMBO_COUNT 1
 #define RGBLED_NUM 0
-#undef OLED_ENABLE
+
+
