@@ -36,7 +36,7 @@ enum layers {
 
 const uint16_t PROGMEM test_combo1[] = {MT_C(KC_F), MT_C(KC_J), COMBO_END};
 combo_t key_combos[1] = {
-    COMBO(test_combo1, CAPS_WORD)
+  COMBO(test_combo1, QK_CAPS_WORD_TOGGLE)
 };
 
 
@@ -45,12 +45,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       QK_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,          KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
       KC_MTCT,   KC_A, MT_G(KC_S), MT_S(KC_D), MT_C(KC_F), KC_G,          KC_H,  MT_C(KC_J), MT_S(KC_K), MT_G(KC_L), KC_SCLN, KC_ENTER,
       KC_LSFT,   KC_Z,       KC_X,       KC_C,       KC_V, KC_B,          KC_N,        KC_M,    KC_COMM,     KC_DOT, KC_SLSH, KC_BSLS,
-                      KC_LGUI, LT(_LOWER,KC_BSPC), MT_S(KC_BSPC),        MT_S(KC_SPC), LT(_RAISE,KC_SPC),  MT(KC_RALT,KC_ENTER)      
+                      KC_LGUI, LT(_LOWER,KC_BSPC), MT_C(KC_BSPC),        MT_S(KC_SPC), LT(_RAISE,KC_SPC),  MT(KC_RALT,KC_ENTER)      
     ),                         
 
   [_LOWER] = LAYOUT_split_3x6_3(
       KC_TILD, KC_EXLM, KC_AT,   KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,  KC_DEL,
-      KC_TAB,  KC_TILD, KC_UNDS, KC_PLUS, KC_PIPE, KC_DQT,                       KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT,KC_QUOTE, KC_GRV,
+      KC_TAB,  KC_TILD, KC_UNDS, KC_PLUS, KC_PIPE, KC_DQT,                       KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT,KC_DQT, KC_GRV,
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_TRNS, _______,
                                          KC_LGUI,  _______, _______,          KC_ENT,  LT(_RAISE,KC_SPC), KC_RALT
     ),
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_MTCT,  KC_GRV, KC_MINS, KC_EQL,  KC_BSLS, KC_QUOT,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,KC_QUOTE,KC_ENTER,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,  KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_COLN,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU,
-                                      _______, _______, _______,             _______, _______, _______                                
+                             _______, LT(_LOWER,KC_DEL), _______,             _______, _______, _______                                
  ),
 
   [CONF] = LAYOUT_split_3x6_3(
