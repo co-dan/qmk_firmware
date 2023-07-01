@@ -35,21 +35,21 @@ enum layer_names {
 //const uint16_t PROGMEM caps_word_combo[] = {KC_G, KC_H, COMBO_END};
 const uint16_t PROGMEM caps_word_combo[] = {MT_C(KC_F), MT_C(KC_J), COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(caps_word_combo, CAPS_WORD),
+    COMBO(caps_word_combo, CW_TOGG),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung41(
-      KC_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,          KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
+      QK_GESC,   KC_Q,       KC_W,       KC_E,       KC_R, KC_T,          KC_Y,        KC_U,       KC_I,       KC_O,    KC_P,  KC_BSPC,
       KC_MTCT,   KC_A, MT_G(KC_S), MT_S(KC_D), MT_C(KC_F), KC_G,          KC_H,  MT_C(KC_J), MT_S(KC_K), MT_G(KC_L), KC_SCLN, KC_ENTER,
       KC_LSFT,   KC_Z,       KC_X,       KC_C,       KC_V, KC_B,          KC_N,        KC_M,    KC_COMM,     KC_DOT, KC_SLSH,KC_BACKSLASH,
-                                                KC_LGUI,  LOWER, KC_SPC, RAISE, KC_RALT
+                                     KC_LGUI,  LT(_LOWER,KC_BSPC), KC_SPC, LT(_RAISE,KC_SPC), KC_RALT
   ),
   
   [_LOWER] = LAYOUT_reviung41(
       KC_TILD, KC_EXLM, KC_AT,   KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_TAB,  KC_TILD, KC_UNDS, KC_PLUS, KC_PIPE, KC_DQT,                       KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT,KC_QUOTE, KC_GRV,
+      KC_TAB,  KC_TILD, KC_UNDS, KC_PLUS, KC_PIPE, KC_DQT,                       KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT,  KC_DQT, KC_GRV,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PGDN, KC_PGUP,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
