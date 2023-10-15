@@ -1,0 +1,8 @@
+AUTO_SHIFT_ENABLE = yes
+WPM_ENABLE      = no
+LTO_ENABLE      = yes
+RGB_ENABLE = no
+RGBLIGHT_ENABLE = no
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
+CONVERT_TO=promicro_rp2040
