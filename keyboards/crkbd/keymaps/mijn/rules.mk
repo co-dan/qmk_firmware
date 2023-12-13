@@ -9,3 +9,9 @@ WPM_ENABLE      = yes
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
+# Holykeebs stuff, trackball module
+#POINTING_DEVICE_ENABLE = yes
+#SRC += drivers/sensors/pimoroni_trackball.c
+POINTING_DEVICE=trackball
+TRACKBALL_RGB_RAINBOW=yes
+TRACKBALL_POSITION=right

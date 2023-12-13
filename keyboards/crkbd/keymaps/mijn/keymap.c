@@ -19,6 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
+
+enum my_keycodes {
+  PD_UP = SAFE_RANGE,
+  PD_DOWN
+};
+
 enum layers {
   _QWERTY,
   _LOWER,
@@ -66,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  ),
 
   [CONF] = LAYOUT_split_3x6_3(
-  QK_BOOT, _______, _______, _______, _______, _______,            KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,
+  QK_BOOT, _______, _______, _______, PD_DOWN, PD_UP,            KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,
   _______, _______, _______, _______, _______, _______,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   _______, _______, _______, _______, _______, _______,            KC_F11,  KC_F12,  _______, _______, _______, _______,
                                _______, _______, _______,        _______, LT(_RAISE,KC_SPC), _______
@@ -95,6 +101,28 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM;
     }
 }
+
+#ifdef POINTING_DEVICE_ENABLED
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case PD_DOWN:
+      if (record->event.pressed) {
+        uint16_t cpi = pimoroni_trackball_get_cpi();
+        pimoroni_trackball_set_cpi(cpi-500);
+      }
+      return false; // Skip all further processing of this key
+    case PD_UP:
+      if (record->event.pressed) {
+        uint16_t cpi = pimoroni_trackball_get_cpi();
+        pimoroni_trackball_set_cpi(cpi+500);
+      }
+      return false; // Let QMK send the enter press/release events
+    default:
+      return true; // Process all other keycodes normally
+  }
+}
+#endif
+
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
