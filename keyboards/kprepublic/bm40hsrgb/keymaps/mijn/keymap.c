@@ -82,26 +82,45 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 // color by layer
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);;
-}
-
-void housekeeping_task_user(void) {
-    uint8_t layer = get_highest_layer(layer_state);
+    uint8_t layer = get_highest_layer(state);
     switch (layer) {
         case _QWERTY:
+            rgblight_mode(RGB_MATRIX_RAINBOW_BEACON);
             rgblight_setrgb(200,10,10);
-            //          rgblight_mode(RGB_MATRIX_RAINBOW_BEACON);
             break;
         case _LOWER:
             rgblight_setrgb(10,10,200);
-            //            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
+            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
             break;
         case _RAISE:
             rgblight_setrgb(10,200,10);
-            //          rgblight_mode(RGB_MATRIX_GRADIENT_LEFT_RIGHT);
+            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
             break;
-        default: break;
-          //rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_WIDE);
+        default:
+          rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_WIDE);
+          break;
+    }  
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);;
+}
+
+/*void housekeeping_task_user(void) {
+    uint8_t layer = get_highest_layer(layer_state);
+    switch (layer) {
+        case _QWERTY:
+          //rgblight_setrgb(200,10,10);
+            rgblight_mode(RGB_MATRIX_RAINBOW_BEACON);
+            break;
+        case _LOWER:
+          //rgblight_setrgb(10,10,200);
+            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
+            break;
+        case _RAISE:
+          //rgblight_setrgb(10,200,10);
+            rgblight_mode(RGB_MATRIX_GRADIENT_LEFT_RIGHT);
+            break;
+        default:
+          rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_WIDE);
+          break;
     }
     return;
-}
+    }*/
