@@ -85,19 +85,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer = get_highest_layer(state);
     switch (layer) {
         case _QWERTY:
-            rgblight_mode(RGB_MATRIX_RAINBOW_BEACON);
+            rgblight_mode_noeeprom(RGB_MATRIX_RAINBOW_BEACON);
             rgblight_setrgb(200,10,10);
             break;
         case _LOWER:
             rgblight_setrgb(10,10,200);
-            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
+            rgblight_mode_noeeprom(RGB_MATRIX_HUE_PENDULUM);
             break;
         case _RAISE:
             rgblight_setrgb(10,200,10);
-            rgblight_mode(RGB_MATRIX_HUE_PENDULUM);
+            rgblight_mode_noeeprom(RGB_MATRIX_HUE_PENDULUM);
             break;
         default:
-          rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_WIDE);
+          rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_WIDE);
           break;
     }  
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);;
