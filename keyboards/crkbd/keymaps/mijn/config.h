@@ -1,5 +1,6 @@
 #pragma once
 
+#define NO_ACTION_ONESHOT 1
 #define NO_AUTO_SHIFT_ALPHA 1
 
 #undef TAPPING_TERM
