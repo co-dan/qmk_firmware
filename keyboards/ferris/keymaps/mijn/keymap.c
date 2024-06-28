@@ -114,3 +114,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+void keyboard_pre_init_user(void) {
+  // Set our LED pin as output
+  setPinOutput(24);
+  // Turn the LED off
+  // (Due to technical reasons, high is off and low is on)
+  writePinHigh(24);
+  /* setPinOutput(25); */
+  /* writePinHigh(25); */
+}
+
+void keyboard_post_init_user(void) {
+    // Initialize RGB to static black
+    rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_BLACK);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+}
+
+void housekeeping_task_user(void) {
+    rgblight_setrgb_at(RGB_BLACK, 0);
+    rgblight_setrgb_at(RGB_BLACK, 1);
+}
+
+

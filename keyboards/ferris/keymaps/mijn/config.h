@@ -23,7 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 170
 #define LONG_TAPPING_TERM 300
 #define TAPPING_TERM_PER_KEY
-#define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
 #define COMBO_COUNT 1
@@ -34,3 +33,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET // Activates the double-tap behavior
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U // Timeout window in ms in which the double tap can occur.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED D5 // Specify an optional status LED by GPIO number which blinks when entering the bootloader
+
+#undef WS2812_DI_PIN
+#define WS2812_DI_PIN 25
+#undef RGBLED_NUM
+#define RGBLED_NUM 2
+#undef RGBLED_SPLIT
+#define RGBLED_SPLIT {1, 1}
+
