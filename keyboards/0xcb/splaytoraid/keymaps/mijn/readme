@@ -1,0 +1,2 @@
+compile with
+CONVERT_TO=promicro_rp2040 make 0xcb/splaytoraid:mijn
